@@ -58,8 +58,8 @@ var customer = function(){
                     console.log ("Insufficient quantity!")
                     customer();
                 } else {
-                var remainingUnits = (res[0].stock_quantity - answer.units)
-                var totalCost = (res[0].price * answer.units);
+                var remainingUnits = (parseInt(res[0].stock_quantity) - parseInt(answer.units));
+                var totalCost = (parseInt(res[0].price) * parseInt(answer.units));
                 var totalPrice = totalCost.toFixed(2);
                 console.log("\nYou have chosen the following: " + res[0].product_name + "  " + "Total: " + totalPrice + "\n")
                 }

@@ -57,8 +57,9 @@ function availableProd(){
             })
 }
 
+
 function lowInventory(){
-    connection.query('SELECT * FROM products WHERE stock_quantity < 100', function(err,res){
+    connection.query('SELECT * FROM products WHERE stock_quantity < 5', function(err,res){
                var table = new Table({
                    head: ['position', 'item_id','product_name','department_name','price', 'stock_quantity']
                    , colWidths: [10,10,35,20,15,20]   
@@ -80,13 +81,22 @@ function addInventory(){
     {
         name: 'units',
         type: 'input',
-        message: 'How many items would you like to add to current inventory level?'
+        message: 'How many items would you like to add to current inventory level?',
+        validate: function(value){
+                if(isNaN(value)==false){
+                    return true;
+                }else{
+                    return false;
+                    console.log("Please enter a number value.")
+                }
+            }
     }]). then(function(answer){
             connection.query("SELECT * FROM products WHERE ?", {item_id: answer.itemID}, function(err,res){
-                var newInventory = (res[0].stock_quantity + answer.units)
-
-                    connection.query("UPDATE products SET ? WHERE ?", [{stock_quantity: newInventory },{item_id: answer.itemID}], function(err, res) {
+                
+              var newUnits = (parseInt(res[0].stock_quantity) + parseInt(answer.units))
+                    connection.query("UPDATE products SET ? WHERE ?", [{stock_quantity: newUnits},{item_id: answer.itemID}], function(err, res) {
                         console.log(res.affectedRows + " product(s) updated!\n");
+                
                         })
             })
     })
@@ -117,13 +127,22 @@ function addProduct(){
     {
         name: 'units',
         type: 'input',
-        message: 'Enter the inventory quantity.'
+        message: 'Enter the inventory quantity.',
+        validate: function(value){
+                if(isNaN(value)==false){
+                    return true;
+                }else{
+                    return false;
+                    console.log("Please enter a number value.")
+                }
+            }
+
     }
 
     ]).then(function(answer){
         connection.query("INSERT INTO products SET ?", {item_id: answer.itemID, product_name: answer.product,
         department_name: answer.dept, price: answer.price, stock_quantity: answer.units}, function(err, res){
-            console.log(res.affectedRows + "products inserted!\n");
+            console.log(res.affectedRows + " product(s) inserted!\n");
         })
     
     })
