@@ -11,10 +11,10 @@ The app performs two functions:
 
 **1.  Customer** 
 
-    * The app is designed to fulfill Customer product orders 
+    * The app is designed to fulfill customer product orders 
     * It will prompt the customer to make a purchase selection and a quantity amount 
     * Based on price and quantity, the app will display the total amount for the purchase
-    * Inventory will be decreased by the amount purchased by the Customer 
+    * Inventory will be decreased by the amount purchased by the customer 
     * 'Insufficient quantity' will display if the customer tries to purchase more than what's available. 
 
 
@@ -25,7 +25,7 @@ The app performs two functions:
         * View Products For Sale
         * View Low Inventory (all products with inventory < 5)
         * Add to Inventory (increase inventory amount as needed and log change)
-        * Add New Product entirely
+        * Add New Product entirely (and log change)
 
 
 
