@@ -10,12 +10,11 @@ This application uses MySQL to create a database called `bamazon`.  The database
 The app performs two functions: 
 
 **1.  Customer** 
-    * The app is designed to fulfill Customer product orders 
-    * It will prompt the customer to make a purchase selection and a quantity amount 
-    * Based on price and quantity, the app will display the total amount for the purchase 
-    * Inventory will be decreased by the amount purchased by the Customer 
-    * 'Insufficient quantity' will display if the customer tries to purchase more than what's available. 
-
+    1 The app is designed to fulfill Customer product orders 
+    1 It will prompt the customer to make a purchase selection and a quantity amount 
+    1 Based on price and quantity, the app will display the total amount for the purchase 
+    1 Inventory will be decreased by the amount purchased by the Customer 
+    1 'Insufficient quantity' will display if the customer tries to purchase more than what's available. 
 
 **2. Manager** 
     * The app will prompt the Manager to select an action: 
